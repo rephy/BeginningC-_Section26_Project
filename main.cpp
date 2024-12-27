@@ -1,25 +1,15 @@
 #include <iostream>
 
-unsigned int dogs {};
+unsigned int sum(int max, int min) {
+    if (max == min) {
+        return max;
+    }
 
-unsigned int add_student() {
-    static unsigned int students {};
-
-    students++;
-    dogs++;
-    return students;
-}
-
-unsigned int add_dog() {
-    dogs++;
-    return dogs;
+    return max + sum(max - 1, min);
 }
 
 int main() {
-    for (size_t i {}; i < 20; i++) {
-        std::cout << "students: " << add_student() << std::endl;
-        std::cout << "dogs: " << add_dog() << std::endl;
-    }
+    std::cout << "sum(50, 1): " << sum(50, 1) << std::endl;
     
     return 0;
 }
